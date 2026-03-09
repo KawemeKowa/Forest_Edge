@@ -1,658 +1,1200 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Forest Edge Pub & Grill — Menu</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --forest: #1a2e1a;
-    --forest-mid: #243824;
-    --forest-light: #2e4d2e;
-    --bark: #3d2b1f;
-    --amber: #d4920a;
-    --amber-light: #f0b429;
-    --gold: #c9a84c;
-    --cream: #f5ead8;
-    --parchment: #ede0c4;
-    --text: #f0e6d3;
-    --text-muted: #b8a898;
-    --divider: rgba(212,146,10,0.3);
-    --card-bg: rgba(255,255,255,0.04);
-    --card-border: rgba(201,168,76,0.15);
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forest Edge Pub & Grill — Menu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --forest: #1a2e1a;
+      --forest-mid: #243824;
+      --forest-light: #2e4d2e;
+      --bark: #3d2b1f;
+      --amber: #d4920a;
+      --amber-light: #f0b429;
+      --gold: #c9a84c;
+      --cream: #f5ead8;
+      --parchment: #ede0c4;
+      --text: #f0e6d3;
+      --text-muted: #b8a898;
+      --divider: rgba(212, 146, 10, 0.3);
+      --card-bg: rgba(255, 255, 255, 0.04);
+      --card-border: rgba(201, 168, 76, 0.15);
+    }
 
-  * { margin:0; padding:0; box-sizing:border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  body {
-    background-color: var(--forest);
-    color: var(--text);
-    font-family: 'Crimson Text', Georgia, serif;
-    font-size: 17px;
-    line-height: 1.5;
-    min-height: 100vh;
-    background-image:
-      radial-gradient(ellipse at 20% 0%, rgba(30,55,30,0.9) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 100%, rgba(26,46,26,0.8) 0%, transparent 60%),
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  }
+    body {
+      background-color: var(--forest);
+      color: var(--text);
+      font-family: 'Crimson Text', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.5;
+      min-height: 100vh;
+      background-image:
+        radial-gradient(ellipse at 20% 0%, rgba(30, 55, 30, 0.9) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 100%, rgba(26, 46, 26, 0.8) 0%, transparent 60%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    }
 
-  /* ── HEADER ── */
-  header {
-    text-align: center;
-    padding: 48px 24px 32px;
-    position: relative;
-    border-bottom: 1px solid var(--divider);
-  }
-  header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 50% 0%, rgba(212,146,10,0.08) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .logo-wrap img {
-    width: 160px;
-    height: 160px;
-    object-fit: contain;
-    filter: drop-shadow(0 4px 24px rgba(212,146,10,0.25));
-    animation: logoFade 1s ease both;
-  }
-  @keyframes logoFade { from { opacity:0; transform:scale(0.92) translateY(-8px); } to { opacity:1; transform:none; } }
+    /* ── HEADER ── */
+    header {
+      text-align: center;
+      padding: 48px 24px 32px;
+      position: relative;
+      border-bottom: 1px solid var(--divider);
+    }
 
-  header h1 {
-    font-family: 'Cinzel Decorative', serif;
-    font-size: clamp(1.4rem, 5vw, 2.4rem);
-    color: var(--amber-light);
-    letter-spacing: 0.06em;
-    text-shadow: 0 2px 24px rgba(212,146,10,0.4);
-    margin-top: 12px;
-  }
-  header .tagline {
-    font-family: 'Cinzel', serif;
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    margin-top: 6px;
-  }
-  .ornament {
-    display: flex; align-items: center; gap: 12px;
-    justify-content: center; margin: 16px auto 0;
-    color: var(--amber); font-size: 1.1rem;
-  }
-  .ornament span { flex:1; max-width:100px; height:1px; background: linear-gradient(to right, transparent, var(--amber)); }
-  .ornament span:last-child { background: linear-gradient(to left, transparent, var(--amber)); }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(212, 146, 10, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
 
-  /* ── CATEGORY NAV ── */
-  .category-nav {
-    position: sticky; top: 0; z-index: 50;
-    background: linear-gradient(180deg, rgba(18,30,18,0.97) 0%, rgba(24,38,24,0.97) 100%);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--divider);
-    padding: 0;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-  .category-nav::-webkit-scrollbar { display:none; }
-  .nav-inner {
-    display: flex; align-items: center;
-    padding: 0 16px;
-    gap: 0;
-    white-space: nowrap;
-    min-width: max-content;
-    max-width: 860px;
-    margin: 0 auto;
-  }
-  .nav-btn {
-    background: none; border: none;
-    font-family: 'Cinzel', serif;
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    padding: 14px 14px;
-    cursor: pointer;
-    transition: color 0.2s;
-    position: relative;
-    white-space: nowrap;
-  }
-  .nav-btn::after {
-    content: ''; position:absolute; bottom:0; left:14px; right:14px;
-    height: 2px; background: var(--amber);
-    transform: scaleX(0); transition: transform 0.2s;
-  }
-  .nav-btn:hover { color: var(--amber-light); }
-  .nav-btn.active { color: var(--amber-light); }
-  .nav-btn.active::after { transform: scaleX(1); }
+    .logo-wrap img {
+      width: 160px;
+      height: 160px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 24px rgba(212, 146, 10, 0.25));
+      animation: logoFade 1s ease both;
+    }
 
-  /* ── MAIN ── */
-  .page-wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
-  @media (max-width: 600px) { .page-wrap { padding: 0; } }
-  main { padding: 0 16px 80px; }
+    @keyframes logoFade {
+      from {
+        opacity: 0;
+        transform: scale(0.92) translateY(-8px);
+      }
 
-  /* ── SECTION ── */
-  .menu-section {
-    padding-top: 40px;
-    animation: fadeUp 0.5s ease both;
-  }
-  @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:none; } }
-  .section-header {
-    display: flex; align-items: center; gap: 16px;
-    margin-bottom: 20px;
-  }
-  .section-header h2 {
-    font-family: 'Cinzel', serif;
-    font-size: 1.05rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--amber-light);
-    white-space: nowrap;
-  }
-  .section-line { flex:1; height:1px; background: linear-gradient(to right, var(--amber) 0%, transparent 100%); }
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
 
-  /* ── SUBSECTION ── */
-  .subsection { margin-bottom: 24px; }
-  .subsection-title {
-    font-family: 'Cinzel', serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 10px;
-    padding: 4px 0;
-    border-bottom: 1px solid var(--divider);
-  }
+    header h1 {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(1.4rem, 5vw, 2.4rem);
+      color: var(--amber-light);
+      letter-spacing: 0.06em;
+      text-shadow: 0 2px 24px rgba(212, 146, 10, 0.4);
+      margin-top: 12px;
+    }
 
-  /* ── ITEM ROW ── */
-  .item-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-  .item-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 8px 12px;
-    border-radius: 4px;
-    transition: background 0.15s;
-  }
-  .item-row:hover { background: var(--card-bg); }
-  .item-row:nth-child(even) { background: rgba(255,255,255,0.02); }
-  .item-row:nth-child(even):hover { background: var(--card-bg); }
+    header .tagline {
+      font-family: 'Cinzel', serif;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
 
-  .item-name {
-    font-size: 1rem;
-    color: var(--text);
-    font-style: italic;
-    padding-right: 12px;
-  }
-  .item-dots {
-    flex:1; border-bottom: 1px dotted rgba(255,255,255,0.12);
-    margin: 0 8px 4px;
-    min-width: 20px;
-  }
-  .item-price {
-    font-family: 'Cinzel', serif;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--amber);
-    white-space: nowrap;
-  }
-  .item-portion {
-    font-size: 0.72rem;
-    color: var(--text-muted);
-    font-style: normal;
-    font-family: 'Cinzel', serif;
-    letter-spacing: 0.08em;
-    margin-left: 6px;
-    background: rgba(255,255,255,0.06);
-    padding: 1px 6px;
-    border-radius: 3px;
-  }
+    .ornament {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      justify-content: center;
+      margin: 16px auto 0;
+      color: var(--amber);
+      font-size: 1.1rem;
+    }
 
-  /* ── BOTTLE/SHOT ITEM ── */
-  .item-multi {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 12px;
-    border-radius: 4px;
-    gap: 8px;
-    transition: background 0.15s;
-  }
-  .item-multi:hover { background: var(--card-bg); }
-  .item-multi:nth-child(even) { background: rgba(255,255,255,0.02); }
-  .item-multi-name { flex: 1; font-size:1rem; color: var(--text); font-style:italic; }
-  .price-tags { display:flex; gap:8px; flex-shrink:0; }
-  .price-tag {
-    text-align: center;
-    background: rgba(201,168,76,0.1);
-    border: 1px solid rgba(201,168,76,0.2);
-    border-radius: 4px;
-    padding: 2px 8px;
-    min-width: 60px;
-  }
-  .price-tag .pt-label {
-    font-family: 'Cinzel', serif;
-    font-size: 0.58rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    display: block;
-  }
-  .price-tag .pt-price {
-    font-family: 'Cinzel', serif;
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: var(--amber);
-  }
+    .ornament span {
+      flex: 1;
+      max-width: 100px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--amber));
+    }
 
-  /* ── FOOTER ── */
-  footer {
-    text-align: center;
-    padding: 40px 24px;
-    border-top: 1px solid var(--divider);
-    margin-top: 40px;
-  }
-  footer p { font-size:0.82rem; color: var(--text-muted); letter-spacing:0.05em; }
-  footer .footer-logo { font-family:'Cinzel Decorative', serif; color:var(--gold); font-size:1rem; margin-bottom:8px; }
+    .ornament span:last-child {
+      background: linear-gradient(to left, transparent, var(--amber));
+    }
 
-  @media(max-width:480px) {
-    .item-multi { flex-direction:column; align-items:flex-start; }
-    .price-tags { width:100%; justify-content:flex-start; }
-  }
-</style>
+    /* ── CATEGORY NAV ── */
+    .category-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: linear-gradient(180deg, rgba(18, 30, 18, 0.97) 0%, rgba(24, 38, 24, 0.97) 100%);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--divider);
+      padding: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .category-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      gap: 0;
+      white-space: nowrap;
+      min-width: max-content;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .nav-btn {
+      background: none;
+      border: none;
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 14px 14px;
+      cursor: pointer;
+      transition: color 0.2s;
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .nav-btn::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 14px;
+      right: 14px;
+      height: 2px;
+      background: var(--amber);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+    }
+
+    .nav-btn:hover {
+      color: var(--amber-light);
+    }
+
+    .nav-btn.active {
+      color: var(--amber-light);
+    }
+
+    .nav-btn.active::after {
+      transform: scaleX(1);
+    }
+
+    /* ── MAIN ── */
+    .page-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    @media (max-width: 600px) {
+      .page-wrap {
+        padding: 0;
+      }
+    }
+
+    main {
+      padding: 0 16px 80px;
+    }
+
+    /* ── SECTION ── */
+    .menu-section {
+      padding-top: 40px;
+      animation: fadeUp 0.5s ease both;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .section-header h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber-light);
+      white-space: nowrap;
+    }
+
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--amber) 0%, transparent 100%);
+    }
+
+    /* ── SUBSECTION ── */
+    .subsection {
+      margin-bottom: 24px;
+    }
+
+    .subsection-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+      padding: 4px 0;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    /* ── ITEM ROW ── */
+    .item-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: background 0.15s;
+    }
+
+    .item-row:hover {
+      background: var(--card-bg);
+    }
+
+    .item-row:nth-child(even) {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .item-row:nth-child(even):hover {
+      background: var(--card-bg);
+    }
+
+    .item-name {
+      font-size: 1rem;
+      color: var(--text);
+      font-style: italic;
+      padding-right: 12px;
+    }
+
+    .item-dots {
+      flex: 1;
+      border-bottom: 1px dotted rgba(255, 255, 255, 0.12);
+      margin: 0 8px 4px;
+      min-width: 20px;
+    }
+
+    .item-price {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--amber);
+      white-space: nowrap;
+    }
+
+    .item-portion {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-style: normal;
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.08em;
+      margin-left: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 1px 6px;
+      border-radius: 3px;
+    }
+
+    /* ── BOTTLE/SHOT ITEM ── */
+    .item-multi {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 4px;
+      gap: 8px;
+      transition: background 0.15s;
+    }
+
+    .item-multi:hover {
+      background: var(--card-bg);
+    }
+
+    .item-multi:nth-child(even) {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .item-multi-name {
+      flex: 1;
+      font-size: 1rem;
+      color: var(--text);
+      font-style: italic;
+    }
+
+    .price-tags {
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .price-tag {
+      text-align: center;
+      background: rgba(201, 168, 76, 0.1);
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      border-radius: 4px;
+      padding: 2px 8px;
+      min-width: 60px;
+    }
+
+    .price-tag .pt-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    .price-tag .pt-price {
+      font-family: 'Cinzel', serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--amber);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 40px 24px;
+      border-top: 1px solid var(--divider);
+      margin-top: 40px;
+    }
+
+    footer p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    footer .footer-logo {
+      font-family: 'Cinzel Decorative', serif;
+      color: var(--gold);
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    @media(max-width:480px) {
+      .item-multi {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .price-tags {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="page-wrap">
-<header>
-  <div class="logo-wrap">
-    <img src="data:image/png;base64,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" alt="Forest Edge Pub & Grill">
-  </div>
-  <h1>Forest Edge Pub &amp; Grill</h1>
-  <p class="tagline">Your Ultimate Hangout &nbsp;·&nbsp; Drinks Menu</p>
-  <div class="ornament">
-    <span></span>
-    ✦
-    <span></span>
-  </div>
-</header>
-</div><!-- /page-wrap header -->
+  <div class="page-wrap">
+    <header>
+      <div class="logo-wrap">
+        <img
+          src="data:image/png;base64,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"
+          alt="Forest Edge Pub & Grill">
+      </div>
+      <h1>Forest Edge Pub &amp; Grill</h1>
+      <p class="tagline">Your Ultimate Hangout &nbsp;·&nbsp; Drinks Menu</p>
+      <div class="ornament">
+        <span></span>
+        ✦
+        <span></span>
+      </div>
+    </header>
+  </div><!-- /page-wrap header -->
 
-<nav class="category-nav">
-  <div class="nav-inner">
-    <button class="nav-btn active" onclick="scrollToSection('beers')">Beers &amp; Ciders</button>
-    <button class="nav-btn" onclick="scrollToSection('wines')">Wines</button>
-    <button class="nav-btn" onclick="scrollToSection('spirits')">Spirits</button>
-    <button class="nav-btn" onclick="scrollToSection('cognac')">Cognac &amp; Brandy</button>
-    <button class="nav-btn" onclick="scrollToSection('softdrinks')">Soft Drinks</button>
-    <button class="nav-btn" onclick="scrollToSection('water')">Water &amp; Juices</button>
-    <button class="nav-btn" onclick="scrollToSection('tobacco')">Tobacco</button>
-  </div>
-</nav>
-
-<div class="page-wrap">
-<main>
-
-<!-- ══════════ BEERS & CIDERS ══════════ -->
-<section class="menu-section" id="beers">
-  <div class="section-header"><h2>🍺 Beers &amp; Ciders</h2><div class="section-line"></div></div>
-
-  <div class="subsection">
-    <p class="subsection-title">On Tap &amp; Bottle</p>
-    <div class="item-grid">
-      <div class="item-row"><span class="item-name">Castle Lager</span><span class="item-dots"></span><span class="item-price">K25</span></div>
-      <div class="item-row"><span class="item-name">Castle Lite</span><span class="item-dots"></span><span class="item-price">K25</span></div>
-      <div class="item-row"><span class="item-name">Castle Lite Dumpy</span><span class="item-dots"></span><span class="item-price">K35</span></div>
-      <div class="item-row"><span class="item-name">Mosi</span><span class="item-dots"></span><span class="item-price">K25</span></div>
-      <div class="item-row"><span class="item-name">Amstel</span><span class="item-dots"></span><span class="item-price">K50</span></div>
-      <div class="item-row"><span class="item-name">Budweiser</span><span class="item-dots"></span><span class="item-price">K55</span></div>
-      <div class="item-row"><span class="item-name">Heineken</span><span class="item-dots"></span><span class="item-price">K50</span></div>
-      <div class="item-row"><span class="item-name">Heineken Silver</span><span class="item-dots"></span><span class="item-price">K55</span></div>
-      <div class="item-row"><span class="item-name">Windhoek Lager</span><span class="item-dots"></span><span class="item-price">K50</span></div>
-      <div class="item-row"><span class="item-name">Windhoek Draught</span><span class="item-dots"></span><span class="item-price">K55</span></div>
-      <div class="item-row"><span class="item-name">Stella Artois</span><span class="item-dots"></span><span class="item-price">K50</span></div>
-      <div class="item-row"><span class="item-name">Corona</span><span class="item-dots"></span><span class="item-price">K50</span></div>
-      <div class="item-row"><span class="item-name">Black Label</span><span class="item-dots"></span><span class="item-price">K25</span></div>
-      <div class="item-row"><span class="item-name">Eagle Extra</span><span class="item-dots"></span><span class="item-price">K18</span></div>
+  <nav class="category-nav">
+    <div class="nav-inner">
+      <button class="nav-btn active" onclick="scrollToSection('beers')">Beers &amp; Ciders</button>
+      <button class="nav-btn" onclick="scrollToSection('wines')">Wines</button>
+      <button class="nav-btn" onclick="scrollToSection('spirits')">Spirits</button>
+      <button class="nav-btn" onclick="scrollToSection('cognac')">Cognac &amp; Brandy</button>
+      <button class="nav-btn" onclick="scrollToSection('softdrinks')">Soft Drinks</button>
+      <button class="nav-btn" onclick="scrollToSection('water')">Water &amp; Juices</button>
+      <button class="nav-btn" onclick="scrollToSection('tobacco')">Tobacco</button>
     </div>
-  </div>
+  </nav>
 
-  <div class="subsection">
-    <p class="subsection-title">Canned</p>
-    <div class="item-grid">
-      <div class="item-row"><span class="item-name">Castle Lite</span><span class="item-dots"></span><span class="item-price">K45</span></div>
-      <div class="item-row"><span class="item-name">Black Label</span><span class="item-dots"></span><span class="item-price">K45</span></div>
-      <div class="item-row"><span class="item-name">Hunters Dry</span><span class="item-dots"></span><span class="item-price">K45</span></div>
-      <div class="item-row"><span class="item-name">Hunters Gold</span><span class="item-dots"></span><span class="item-price">K45</span></div>
-      <div class="item-row"><span class="item-name">Brutal Fruit</span><span class="item-dots"></span><span class="item-price">K45</span></div>
-      <div class="item-row"><span class="item-name">Flying Fish</span><span class="item-dots"></span><span class="item-price">K45</span></div>
-      <div class="item-row"><span class="item-name">Savanna</span><span class="item-dots"></span><span class="item-price">K45</span></div>
-      <div class="item-row"><span class="item-name">Breezer Blackberry</span><span class="item-dots"></span><span class="item-price">K50</span></div>
-      <div class="item-row"><span class="item-name">Breezer Blueberry</span><span class="item-dots"></span><span class="item-price">K50</span></div>
-      <div class="item-row"><span class="item-name">Breezer Strawberry</span><span class="item-dots"></span><span class="item-price">K50</span></div>
-      <div class="item-row"><span class="item-name">Sour Monkey — Sour Apple</span><span class="item-dots"></span><span class="item-price">K350</span></div>
-    </div>
-  </div>
-</section>
+  <div class="page-wrap">
+    <main>
 
-<!-- ══════════ WINES ══════════ -->
-<section class="menu-section" id="wines">
-  <div class="section-header"><h2>🍷 Wines</h2><div class="section-line"></div></div>
+      <!-- ══════════ BEERS & CIDERS ══════════ -->
+      <section class="menu-section" id="beers">
+        <div class="section-header">
+          <h2>🍺 Beers &amp; Ciders</h2>
+          <div class="section-line"></div>
+        </div>
 
-  <div class="subsection">
-    <p class="subsection-title">Red Wines</p>
-    <div class="item-grid">
-      <div class="item-row"><span class="item-name">Four Cousins Natural Sweet Red 750ml</span><span class="item-dots"></span><span class="item-price">K300</span></div>
-      <div class="item-row"><span class="item-name">Four Cousins Natural Sweet Red <span class="item-portion">Can</span></span><span class="item-dots"></span><span class="item-price">K40</span></div>
-      <div class="item-row"><span class="item-name">Robertson Winery 750ml</span><span class="item-dots"></span><span class="item-price">K300</span></div>
-      <div class="item-row"><span class="item-name">Robertson Winery Sweet Red 1.5L</span><span class="item-dots"></span><span class="item-price">K450</span></div>
-      <div class="item-row"><span class="item-name">Rooiberg Winery Red Natural Sweet</span><span class="item-dots"></span><span class="item-price">K300</span></div>
-      <div class="item-row"><span class="item-name">Jam Jar Sweet Red Blend</span><span class="item-dots"></span><span class="item-price">K300</span></div>
-      <div class="item-row"><span class="item-name">Jam Jar Sweet Shiraz</span><span class="item-dots"></span><span class="item-price">K300</span></div>
-      <div class="item-row"><span class="item-name">Sun Kissed Natural Sweet Red</span><span class="item-dots"></span><span class="item-price">K300</span></div>
-      <div class="item-row"><span class="item-name">DU TOITSKLOOF Cab Sauvignon Shiraz</span><span class="item-dots"></span><span class="item-price">K280</span></div>
-      <div class="item-row"><span class="item-name">DU TOITSKLOOF Selected Cab Sauvignon</span><span class="item-dots"></span><span class="item-price">K350</span></div>
-      <div class="item-row"><span class="item-name">DU TOITSKLOOF Selected Vineyards Shiraz</span><span class="item-dots"></span><span class="item-price">K400</span></div>
-      <div class="item-row"><span class="item-name">KWV Merlot</span><span class="item-dots"></span><span class="item-price">K400</span></div>
-      <div class="item-row"><span class="item-name">KWV Pinotage</span><span class="item-dots"></span><span class="item-price">K350</span></div>
-      <div class="item-row"><span class="item-name">KWV Shiraz</span><span class="item-dots"></span><span class="item-price">K400</span></div>
-      <div class="item-row"><span class="item-name">Nederburg Baronne</span><span class="item-dots"></span><span class="item-price">K400</span></div>
-      <div class="item-row"><span class="item-name">Nederburg Cabernet Sauvignon</span><span class="item-dots"></span><span class="item-price">K400</span></div>
-      <div class="item-row"><span class="item-name">Nederburg Merlot</span><span class="item-dots"></span><span class="item-price">K400</span></div>
-      <div class="item-row"><span class="item-name">Nederburg Pinotage</span><span class="item-dots"></span><span class="item-price">K400</span></div>
-      <div class="item-row"><span class="item-name">Nederburg Shiraz</span><span class="item-dots"></span><span class="item-price">K400</span></div>
-      <div class="item-row"><span class="item-name">Fat Bastard Cabernet Sauvignon</span><span class="item-dots"></span><span class="item-price">K700</span></div>
-      <div class="item-row"><span class="item-name">Fat Bastard Merlot</span><span class="item-dots"></span><span class="item-price">K700</span></div>
-      <div class="item-row"><span class="item-name">Fat Bastard Shiraz</span><span class="item-dots"></span><span class="item-price">K700</span></div>
-      <div class="item-row"><span class="item-name">Hedgehog Cabernet Sauvignon</span><span class="item-dots"></span><span class="item-price">K350</span></div>
-      <div class="item-row"><span class="item-name">Meerlust</span><span class="item-dots"></span><span class="item-price">K700</span></div>
-      <div class="item-row"><span class="item-name">Rupert &amp; Rothschild</span><span class="item-dots"></span><span class="item-price">K400</span></div>
-    </div>
-  </div>
+        <div class="subsection">
+          <p class="subsection-title">On Tap &amp; Bottle</p>
+          <div class="item-grid">
+            <div class="item-row"><span class="item-name">Castle Lager</span><span class="item-dots"></span><span
+                class="item-price">K25</span></div>
+            <div class="item-row"><span class="item-name">Castle Lite</span><span class="item-dots"></span><span
+                class="item-price">K25</span></div>
+            <div class="item-row"><span class="item-name">Castle Lite Dumpy</span><span class="item-dots"></span><span
+                class="item-price">K35</span></div>
+            <div class="item-row"><span class="item-name">Mosi</span><span class="item-dots"></span><span
+                class="item-price">K25</span></div>
+            <div class="item-row"><span class="item-name">Amstel</span><span class="item-dots"></span><span
+                class="item-price">K50</span></div>
+            <div class="item-row"><span class="item-name">Budweiser</span><span class="item-dots"></span><span
+                class="item-price">K55</span></div>
+            <div class="item-row"><span class="item-name">Heineken</span><span class="item-dots"></span><span
+                class="item-price">K50</span></div>
+            <div class="item-row"><span class="item-name">Heineken Silver</span><span class="item-dots"></span><span
+                class="item-price">K55</span></div>
+            <div class="item-row"><span class="item-name">Windhoek Lager</span><span class="item-dots"></span><span
+                class="item-price">K50</span></div>
+            <div class="item-row"><span class="item-name">Windhoek Draught</span><span class="item-dots"></span><span
+                class="item-price">K55</span></div>
+            <div class="item-row"><span class="item-name">Stella Artois</span><span class="item-dots"></span><span
+                class="item-price">K50</span></div>
+            <div class="item-row"><span class="item-name">Corona</span><span class="item-dots"></span><span
+                class="item-price">K50</span></div>
+            <div class="item-row"><span class="item-name">Black Label</span><span class="item-dots"></span><span
+                class="item-price">K25</span></div>
+            <div class="item-row"><span class="item-name">Eagle Extra</span><span class="item-dots"></span><span
+                class="item-price">K18</span></div>
+          </div>
+        </div>
 
-  <div class="subsection">
-    <p class="subsection-title">White Wines</p>
-    <div class="item-grid">
-      <div class="item-row"><span class="item-name">KWV Chenin Blanc</span><span class="item-dots"></span><span class="item-price">K300</span></div>
-      <div class="item-row"><span class="item-name">KWV Sauvignon Blanc</span><span class="item-dots"></span><span class="item-price">K300</span></div>
-      <div class="item-row"><span class="item-name">DU TOITSKLOOF Sauvignon Blanc</span><span class="item-dots"></span><span class="item-price">K250</span></div>
-      <div class="item-row"><span class="item-name">Nederburg Sauvignon Blanc</span><span class="item-dots"></span><span class="item-price">K400</span></div>
-      <div class="item-row"><span class="item-name">Nederburg Lyric</span><span class="item-dots"></span><span class="item-price">K400</span></div>
-      <div class="item-row"><span class="item-name">Pearly Bay Cape Sweet White</span><span class="item-dots"></span><span class="item-price">K300</span></div>
-      <div class="item-row"><span class="item-name">Fat Bastard Golden Reserve</span><span class="item-dots"></span><span class="item-price">K700</span></div>
-      <div class="item-row"><span class="item-name">Autumn Harvest Crackling White 750ml</span><span class="item-dots"></span><span class="item-price">K150</span></div>
-      <div class="item-row"><span class="item-name">Drostdy Hof 750ml</span><span class="item-dots"></span><span class="item-price">K300</span></div>
-      <div class="item-row"><span class="item-name">Four Cousins Dry 750ml</span><span class="item-dots"></span><span class="item-price">K300</span></div>
-      <div class="item-row"><span class="item-name">Four Cousins 1.5L</span><span class="item-dots"></span><span class="item-price">K450</span></div>
-    </div>
-  </div>
+        <div class="subsection">
+          <p class="subsection-title">Canned</p>
+          <div class="item-grid">
+            <div class="item-row"><span class="item-name">Castle Lite</span><span class="item-dots"></span><span
+                class="item-price">K45</span></div>
+            <div class="item-row"><span class="item-name">Black Label</span><span class="item-dots"></span><span
+                class="item-price">K45</span></div>
+            <div class="item-row"><span class="item-name">Hunters Dry</span><span class="item-dots"></span><span
+                class="item-price">K45</span></div>
+            <div class="item-row"><span class="item-name">Hunters Gold</span><span class="item-dots"></span><span
+                class="item-price">K45</span></div>
+            <div class="item-row"><span class="item-name">Brutal Fruit</span><span class="item-dots"></span><span
+                class="item-price">K45</span></div>
+            <div class="item-row"><span class="item-name">Flying Fish</span><span class="item-dots"></span><span
+                class="item-price">K45</span></div>
+            <div class="item-row"><span class="item-name">Savanna</span><span class="item-dots"></span><span
+                class="item-price">K45</span></div>
+            <div class="item-row"><span class="item-name">Breezer Blackberry</span><span class="item-dots"></span><span
+                class="item-price">K50</span></div>
+            <div class="item-row"><span class="item-name">Breezer Blueberry</span><span class="item-dots"></span><span
+                class="item-price">K50</span></div>
+            <div class="item-row"><span class="item-name">Breezer Strawberry</span><span class="item-dots"></span><span
+                class="item-price">K50</span></div>
+            <div class="item-row"><span class="item-name">Sour Monkey — Sour Apple</span><span
+                class="item-dots"></span><span class="item-price">K350</span></div>
+          </div>
+        </div>
+      </section>
 
-  <div class="subsection">
-    <p class="subsection-title">Rosé Wines</p>
-    <div class="item-grid">
-      <div class="item-row"><span class="item-name">KWV Rosé</span><span class="item-dots"></span><span class="item-price">K300</span></div>
-      <div class="item-row"><span class="item-name">Jam Jar Blush Rosé</span><span class="item-dots"></span><span class="item-price">K300</span></div>
-      <div class="item-row"><span class="item-name">Rooiberg Winery Rosé Natural Sweet</span><span class="item-dots"></span><span class="item-price">K300</span></div>
-      <div class="item-row"><span class="item-name">Robertson Winery Rose 1.5L</span><span class="item-dots"></span><span class="item-price">K450</span></div>
-      <div class="item-row"><span class="item-name">Autumn Harvest Crackling Rose 750ml</span><span class="item-dots"></span><span class="item-price">K150</span></div>
-      <div class="item-row"><span class="item-name">Sarah's Creek</span><span class="item-dots"></span><span class="item-price">K400</span></div>
-    </div>
-  </div>
+      <!-- ══════════ WINES ══════════ -->
+      <section class="menu-section" id="wines">
+        <div class="section-header">
+          <h2>🍷 Wines</h2>
+          <div class="section-line"></div>
+        </div>
 
-  <div class="subsection">
-    <p class="subsection-title">Sparkling &amp; Champagne</p>
-    <div class="item-grid">
-      <div class="item-row"><span class="item-name">J-C Le Roux</span><span class="item-dots"></span><span class="item-price">K400</span></div>
-      <div class="item-row"><span class="item-name">Chateau Del Rei Sparkling Sweet 250ml</span><span class="item-dots"></span><span class="item-price">K300</span></div>
-      <div class="item-row"><span class="item-name">Chateau Del Rei Sweet Red 250ml</span><span class="item-dots"></span><span class="item-price">K400</span></div>
-      <div class="item-row"><span class="item-name">Moët &amp; Chandon Imperial</span><span class="item-dots"></span><span class="item-price">K1,800</span></div>
-      <div class="item-row"><span class="item-name">Moët &amp; Chandon Nectar</span><span class="item-dots"></span><span class="item-price">K1,800</span></div>
-    </div>
-  </div>
-</section>
+        <div class="subsection">
+          <p class="subsection-title">Red Wines</p>
+          <div class="item-grid">
+            <div class="item-row"><span class="item-name">Four Cousins Natural Sweet Red 750ml</span><span
+                class="item-dots"></span><span class="item-price">K230</span></div>
+            <div class="item-row"><span class="item-name">Four Cousins Natural Sweet Red <span
+                  class="item-portion">Can</span></span><span class="item-dots"></span><span
+                class="item-price">K40</span></div>
+            <div class="item-row"><span class="item-name">Robertson Winery 750ml</span><span
+                class="item-dots"></span><span class="item-price">K300</span></div>
+            <div class="item-row"><span class="item-name">Robertson Winery Sweet Red 1.5L</span><span
+                class="item-dots"></span><span class="item-price">K450</span></div>
+            <div class="item-row"><span class="item-name">Rooiberg Winery Red Natural Sweet</span><span
+                class="item-dots"></span><span class="item-price">K300</span></div>
+            <div class="item-row"><span class="item-name">Jam Jar Sweet Red Blend</span><span
+                class="item-dots"></span><span class="item-price">K320</span></div>
+            <div class="item-row"><span class="item-name">Jam Jar Sweet Shiraz</span><span
+                class="item-dots"></span><span class="item-price">K320</span></div>
+            <div class="item-row"><span class="item-name">Sun Kissed Natural Sweet Red</span><span
+                class="item-dots"></span><span class="item-price">K300</span></div>
+            <div class="item-row"><span class="item-name">DU TOITSKLOOF Cab Sauvignon Shiraz</span><span
+                class="item-dots"></span><span class="item-price">K280</span></div>
+            <div class="item-row"><span class="item-name">DU TOITSKLOOF Selected Cab Sauvignon</span><span
+                class="item-dots"></span><span class="item-price">K350</span></div>
+            <div class="item-row"><span class="item-name">DU TOITSKLOOF Selected Vineyards Shiraz</span><span
+                class="item-dots"></span><span class="item-price">K400</span></div>
+            <div class="item-row"><span class="item-name">KWV Merlot</span><span class="item-dots"></span><span
+                class="item-price">K400</span></div>
+            <div class="item-row"><span class="item-name">KWV Pinotage</span><span class="item-dots"></span><span
+                class="item-price">K350</span></div>
+            <div class="item-row"><span class="item-name">KWV Shiraz</span><span class="item-dots"></span><span
+                class="item-price">K400</span></div>
+            <div class="item-row"><span class="item-name">Nederburg Baronne</span><span class="item-dots"></span><span
+                class="item-price">K400</span></div>
+            <div class="item-row"><span class="item-name">Nederburg Cabernet Sauvignon</span><span
+                class="item-dots"></span><span class="item-price">K400</span></div>
+            <div class="item-row"><span class="item-name">Nederburg Merlot</span><span class="item-dots"></span><span
+                class="item-price">K400</span></div>
+            <div class="item-row"><span class="item-name">Nederburg Pinotage</span><span class="item-dots"></span><span
+                class="item-price">K400</span></div>
+            <div class="item-row"><span class="item-name">Nederburg Shiraz</span><span class="item-dots"></span><span
+                class="item-price">K400</span></div>
+            <div class="item-row"><span class="item-name">Fat Bastard Cabernet Sauvignon</span><span
+                class="item-dots"></span><span class="item-price">K700</span></div>
+            <div class="item-row"><span class="item-name">Fat Bastard Merlot</span><span class="item-dots"></span><span
+                class="item-price">K700</span></div>
+            <div class="item-row"><span class="item-name">Fat Bastard Shiraz</span><span class="item-dots"></span><span
+                class="item-price">K700</span></div>
+            <div class="item-row"><span class="item-name">Hedgehog Cabernet Sauvignon</span><span
+                class="item-dots"></span><span class="item-price">K350</span></div>
+            <div class="item-row"><span class="item-name">Meerlust</span><span class="item-dots"></span><span
+                class="item-price">K700</span></div>
+            <div class="item-row"><span class="item-name">Rupert &amp; Rothschild</span><span
+                class="item-dots"></span><span class="item-price">K400</span></div>
+            <div class="item-row"><span class="item-name">Cronier Natural Sweet Red</span><span
+                class="item-dots"></span><span class="item-price">K300</span></div>
+            <div class="item-row"><span class="item-name">Cellarcask</span><span
+                class="item-dots"></span><span class="item-price">K260</span></div>
+          </div>
+        </div>
 
-<!-- ══════════ SPIRITS ══════════ -->
-<section class="menu-section" id="spirits">
-  <div class="section-header"><h2>🥃 Spirits</h2><div class="section-line"></div></div>
+        <div class="subsection">
+          <p class="subsection-title">White Wines</p>
+          <div class="item-grid">
+            <div class="item-row"><span class="item-name">KWV Chenin Blanc</span><span class="item-dots"></span><span
+                class="item-price">K300</span></div>
+            <div class="item-row"><span class="item-name">KWV Sauvignon Blanc</span><span class="item-dots"></span><span
+                class="item-price">K300</span></div>
+            <div class="item-row"><span class="item-name">DU TOITSKLOOF Sauvignon Blanc</span><span
+                class="item-dots"></span><span class="item-price">K250</span></div>
+            <div class="item-row"><span class="item-name">Nederburg Sauvignon Blanc</span><span
+                class="item-dots"></span><span class="item-price">K400</span></div>
+            <div class="item-row"><span class="item-name">Nederburg Lyric</span><span class="item-dots"></span><span
+                class="item-price">K400</span></div>
+            <div class="item-row"><span class="item-name">Pearly Bay Cape Sweet White</span><span
+                class="item-dots"></span><span class="item-price">K300</span></div>
+            <div class="item-row"><span class="item-name">Fat Bastard Golden Reserve</span><span
+                class="item-dots"></span><span class="item-price">K500</span></div>
+            <div class="item-row"><span class="item-name">Autumn Harvest Crackling White 750ml</span><span
+                class="item-dots"></span><span class="item-price">K150</span></div>
+            <div class="item-row"><span class="item-name">Drostdy Hof 750ml</span><span class="item-dots"></span><span
+                class="item-price">K300</span></div>
+            <div class="item-row"><span class="item-name">Four Cousins Dry 750ml</span><span
+                class="item-dots"></span><span class="item-price">K230</span></div>
+            <div class="item-row"><span class="item-name">Four Cousins 1.5L</span><span class="item-dots"></span><span
+                class="item-price">K450</span></div>
+            <div class="item-row"><span class="item-name">Cronier</span><span class="item-dots"></span><span
+                class="item-price">K300</span></div>
+          </div>
+        </div>
 
-  <div class="subsection">
-    <p class="subsection-title">Gin</p>
-    <div class="item-grid">
-      <div class="item-multi"><span class="item-multi-name">Gordon's London Dry Gin</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K25</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K350</span></div></div></div>
-      <div class="item-multi"><span class="item-multi-name">Gordon's Pink Berry</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K450</span></div></div></div>
-      <div class="item-multi"><span class="item-multi-name">Belgravia London Dry Gin 750ml</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K25</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K400</span></div></div></div>
-      <div class="item-multi"><span class="item-multi-name">Beefeater</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K25</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K500</span></div></div></div>
-      <div class="item-multi"><span class="item-multi-name">Beefeater Pink</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K30</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K600</span></div></div></div>
-      <div class="item-multi"><span class="item-multi-name">Bombay Sapphire</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K40</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K700</span></div></div></div>
-      <div class="item-multi"><span class="item-multi-name">Tanqueray</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K40</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K700</span></div></div></div>
-      <div class="item-multi"><span class="item-multi-name">Hendrick's</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K40</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K500</span></div></div></div>
-      <div class="item-multi"><span class="item-multi-name">Bulldog Gin</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K50</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K700</span></div></div></div>
-      <div class="item-multi"><span class="item-multi-name">Musgrave Gin (Original / Pink)</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K60</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K800</span></div></div></div>
-      <div class="item-multi"><span class="item-multi-name">Six Dogs Gin (Blue / Karoo / Pinotage)</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K60</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K800</span></div></div></div>
-      <div class="item-multi"><span class="item-multi-name">South African Rooibos Gin</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K60</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K800</span></div></div></div>
-      <div class="item-row"><span class="item-name">Belgravia Canned Gin &amp; Dry Lemon</span><span class="item-dots"></span><span class="item-price">K65</span></div>
-      <div class="item-row"><span class="item-name">Belgravia Canned Gin &amp; Tonic</span><span class="item-dots"></span><span class="item-price">K65</span></div>
-      <div class="item-row"><span class="item-name">Belgravia Gin Dark Cherry</span><span class="item-dots"></span><span class="item-price">K65</span></div>
-    </div>
-  </div>
+        <div class="subsection">
+          <p class="subsection-title">Rosé Wines</p>
+          <div class="item-grid">
+            <div class="item-row"><span class="item-name">KWV Rosé</span><span class="item-dots"></span><span
+                class="item-price">K300</span></div>
+            <div class="item-row"><span class="item-name">Jam Jar Blush Rosé</span><span class="item-dots"></span><span
+                class="item-price">K300</span></div>
+            <div class="item-row"><span class="item-name">Rooiberg Winery Rosé Natural Sweet</span><span
+                class="item-dots"></span><span class="item-price">K300</span></div>
+            <div class="item-row"><span class="item-name">Robertson Winery Rose 1.5L</span><span
+                class="item-dots"></span><span class="item-price">K450</span></div>
+            <div class="item-row"><span class="item-name">Autumn Harvest Crackling Rose 750ml</span><span
+                class="item-dots"></span><span class="item-price">K150</span></div>
+            <div class="item-row"><span class="item-name">Sarah's Creek</span><span class="item-dots"></span><span
+                class="item-price">K400</span></div>
+          </div>
+        </div>
 
-  <div class="subsection">
-    <p class="subsection-title">Vodka</p>
-    <div class="item-grid">
-      <div class="item-multi"><span class="item-multi-name">Absolut Vodka</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K60</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K750</span></div></div></div>
-      <div class="item-row"><span class="item-name">Absolut Raspberry</span><span class="item-dots"></span><span class="item-price">K950</span></div>
-      <div class="item-multi"><span class="item-multi-name">Bankers Club Vodka</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K15</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K350</span></div></div></div>
-      <div class="item-row"><span class="item-name">Count Pushkin</span><span class="item-dots"></span><span class="item-price">K250</span></div>
-      <div class="item-row"><span class="item-name">Count Pushkin — Mango 750ml</span><span class="item-dots"></span><span class="item-price">K350</span></div>
-      <div class="item-row"><span class="item-name">Bullet Vodka 250ml</span><span class="item-dots"></span><span class="item-price">K200</span></div>
-      <div class="item-row"><span class="item-name">Romanoff</span><span class="item-dots"></span><span class="item-price">K300</span></div>
-      <div class="item-row"><span class="item-name">Grey Goose 750ml</span><span class="item-dots"></span><span class="item-price">K1,100</span></div>
-    </div>
-  </div>
+        <div class="subsection">
+          <p class="subsection-title">Sparkling &amp; Champagne</p>
+          <div class="item-grid">
+            <div class="item-row"><span class="item-name">J-C Le Roux</span><span class="item-dots"></span><span
+                class="item-price">K400</span></div>
+            <div class="item-row"><span class="item-name">Chateau Del Rei Sparkling Sweet 250ml</span><span
+                class="item-dots"></span><span class="item-price">K300</span></div>
+            <div class="item-row"><span class="item-name">Chateau Del Rei Sweet Red 250ml</span><span
+                class="item-dots"></span><span class="item-price">K400</span></div>
+            <div class="item-row"><span class="item-name">Moët &amp; Chandon Imperial</span><span
+                class="item-dots"></span><span class="item-price">K1,800</span></div>
+            <div class="item-row"><span class="item-name">Moët &amp; Chandon Nectar</span><span
+                class="item-dots"></span><span class="item-price">K1,800</span></div>
+          </div>
+        </div>
+      </section>
 
-  <div class="subsection">
-    <p class="subsection-title">Whiskey &amp; Scotch</p>
-    <div class="item-grid">
-      <div class="item-multi"><span class="item-multi-name">Johnnie Walker Red Label</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K30</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K650</span></div></div></div>
-      <div class="item-multi"><span class="item-multi-name">Johnnie Walker Black Label 750ml</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K70</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K1,300</span></div></div></div>
-      <div class="item-multi"><span class="item-multi-name">Johnnie Walker Double Black</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K75</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K1,750</span></div></div></div>
-      <div class="item-multi"><span class="item-multi-name">Jameson Triple Distilled 750ml</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K50</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K900</span></div></div></div>
-      <div class="item-multi"><span class="item-multi-name">Jameson IPA Edition</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K50</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K850</span></div></div></div>
-      <div class="item-multi"><span class="item-multi-name">Jameson Single Pot Still</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K50</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K1,000</span></div></div></div>
-      <div class="item-multi"><span class="item-multi-name">Jameson Stout Edition</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K60</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K1,000</span></div></div></div>
-      <div class="item-multi"><span class="item-multi-name">Jameson Black Barrel</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K70</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K1,300</span></div></div></div>
-      <div class="item-multi"><span class="item-multi-name">Jameson Triple Triple 750ml</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K70</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K1,600</span></div></div></div>
-      <div class="item-multi"><span class="item-multi-name">Jack Daniels 750ml</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K50</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K1,100</span></div></div></div>
-      <div class="item-multi"><span class="item-multi-name">Jack Daniels Honey 750ml</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K60</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K1,100</span></div></div></div>
-      <div class="item-row"><span class="item-name">Jack Daniels 1L</span><span class="item-dots"></span><span class="item-price">K1,200</span></div>
-      <div class="item-multi"><span class="item-multi-name">Bankers Club Whiskey</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K45</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K600</span></div></div></div>
-      <div class="item-row"><span class="item-name">Bells Whiskey 750ml</span><span class="item-dots"></span><span class="item-price">K650</span></div>
-      <div class="item-row"><span class="item-name">Famous Grouse 750ml</span><span class="item-dots"></span><span class="item-price">K600</span></div>
-      <div class="item-row"><span class="item-name">Grants Whiskey 750ml</span><span class="item-dots"></span><span class="item-price">K500</span></div>
-      <div class="item-row"><span class="item-name">Harrier Whisky 750ml</span><span class="item-dots"></span><span class="item-price">K300</span></div>
-      <div class="item-row"><span class="item-name">Chivas Regal</span><span class="item-dots"></span><span class="item-price">K1,200</span></div>
-      <div class="item-multi"><span class="item-multi-name">Glenfiddich 12 Years</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K70</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K1,900</span></div></div></div>
-      <div class="item-multi"><span class="item-multi-name">Glenlivet 12 Years</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K70</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K1,900</span></div></div></div>
-      <div class="item-multi"><span class="item-multi-name">Glenlivet Founders Reserve</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K80</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K2,000</span></div></div></div>
-    </div>
-  </div>
+      <!-- ══════════ SPIRITS ══════════ -->
+      <section class="menu-section" id="spirits">
+        <div class="section-header">
+          <h2>🥃 Spirits</h2>
+          <div class="section-line"></div>
+        </div>
 
-  <div class="subsection">
-    <p class="subsection-title">Rum</p>
-    <div class="item-grid">
-      <div class="item-multi"><span class="item-multi-name">Bacardi Carta Blanca 750ml</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K60</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K600</span></div></div></div>
-      <div class="item-row"><span class="item-name">Captain Morgan Jamaica Rum 750ml</span><span class="item-dots"></span><span class="item-price">K550</span></div>
-      <div class="item-row"><span class="item-name">Captain Morgan Spiced Gold 750ml</span><span class="item-dots"></span><span class="item-price">K400</span></div>
-      <div class="item-row"><span class="item-name">Wise Monkey Café Rum</span><span class="item-dots"></span><span class="item-price">K500</span></div>
-      <div class="item-row"><span class="item-name">Wise Monkey Coconut</span><span class="item-dots"></span><span class="item-price">K500</span></div>
-      <div class="item-row"><span class="item-name">Wise Monkey Gold</span><span class="item-dots"></span><span class="item-price">K500</span></div>
-    </div>
-  </div>
+        <div class="subsection">
+          <p class="subsection-title">Gin</p>
+          <div class="item-grid">
+            <div class="item-multi"><span class="item-multi-name">Gordon's London Dry Gin</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K25</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K300</span></div>
+              </div>
+            </div>
+            <div class="item-multi"><span class="item-multi-name">Gordon's Pink Berry</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K450</span></div>
+              </div>
+            </div>
+            <div class="item-multi"><span class="item-multi-name">Belgravia London Dry Gin 750ml</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K25</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K400</span></div>
+              </div>
+            </div>
+            <div class="item-multi"><span class="item-multi-name">Beefeater</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K25</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K450</span></div>
+              </div>
+            </div>
+            <div class="item-multi"><span class="item-multi-name">Beefeater Pink</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K30</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K500</span></div>
+              </div>
+            </div>
+            <div class="item-multi"><span class="item-multi-name">Bombay Sapphire</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K40</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K700</span></div>
+              </div>
+            </div>
+            <div class="item-multi"><span class="item-multi-name">Tanqueray</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K40</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K700</span></div>
+              </div>
+            </div>
+            <div class="item-multi"><span class="item-multi-name">Hendrick's</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K40</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K500</span></div>
+              </div>
+            </div>
+            <div class="item-multi"><span class="item-multi-name">Bulldog Gin</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K50</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K700</span></div>
+              </div>
+            </div>
+            <div class="item-multi"><span class="item-multi-name">Musgrave Gin (Original / Pink)</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K60</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K800</span></div>
+              </div>
+            </div>
+            <div class="item-multi"><span class="item-multi-name">Six Dogs Gin (Blue / Karoo / Pinotage)</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K60</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K800</span></div>
+              </div>
+            </div>
+            <div class="item-multi"><span class="item-multi-name">South African Rooibos Gin</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K60</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K800</span></div>
+              </div>
+            </div>
+            <div class="item-row"><span class="item-name">Belgravia Canned Gin &amp; Dry Lemon</span><span
+                class="item-dots"></span><span class="item-price">K65</span></div>
+            <div class="item-row"><span class="item-name">Belgravia Canned Gin &amp; Tonic</span><span
+                class="item-dots"></span><span class="item-price">K65</span></div>
+            <div class="item-row"><span class="item-name">Belgravia Gin Dark Cherry</span><span
+                class="item-dots"></span><span class="item-price">K65</span></div>
+          </div>
+        </div>
 
-  <div class="subsection">
-    <p class="subsection-title">Tequila</p>
-    <div class="item-grid">
-      <div class="item-multi"><span class="item-multi-name">Olmeca Tequila Gold</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K45</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K850</span></div></div></div>
-      <div class="item-multi"><span class="item-multi-name">Olmeca Tequila Silver</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K45</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K850</span></div></div></div>
-      <div class="item-row"><span class="item-name">El Bravo Tequila Original</span><span class="item-dots"></span><span class="item-price">K500</span></div>
-      <div class="item-row"><span class="item-name">El Bravo Strawberry</span><span class="item-dots"></span><span class="item-price">K500</span></div>
-      <div class="item-row"><span class="item-name">Patron Silver Premium Tequila</span><span class="item-dots"></span><span class="item-price">K2,500</span></div>
-    </div>
-  </div>
+        <div class="subsection">
+          <p class="subsection-title">Vodka</p>
+          <div class="item-grid">
+            <div class="item-multi"><span class="item-multi-name">Absolut Vodka</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K60</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K750</span></div>
+              </div>
+            </div>
+            <div class="item-row"><span class="item-name">Absolut Raspberry</span><span class="item-dots"></span><span
+                class="item-price">K950</span></div>
+            <div class="item-multi"><span class="item-multi-name">Bankers Club Vodka</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K15</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K350</span></div>
+              </div>
+            </div>
+            <div class="item-row"><span class="item-name">Count Pushkin</span><span class="item-dots"></span><span
+                class="item-price">K250</span></div>
+            <div class="item-row"><span class="item-name">Count Pushkin — Mango 750ml</span><span
+                class="item-dots"></span><span class="item-price">K350</span></div>
+            <div class="item-row"><span class="item-name">Bullet Vodka 250ml</span><span class="item-dots"></span><span
+                class="item-price">K200</span></div>
+            <div class="item-row"><span class="item-name">Romanoff</span><span class="item-dots"></span><span
+                class="item-price">K300</span></div>
+            <div class="item-row"><span class="item-name">Grey Goose 750ml</span><span class="item-dots"></span><span
+                class="item-price">K1,100</span></div>
+          </div>
+        </div>
 
-  <div class="subsection">
-    <p class="subsection-title">Liqueurs &amp; Others</p>
-    <div class="item-grid">
-      <div class="item-multi"><span class="item-multi-name">Amarula</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K30</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K550</span></div></div></div>
-      <div class="item-multi"><span class="item-multi-name">Jägermeister 750ml</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K40</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K800</span></div></div></div>
-      <div class="item-row"><span class="item-name">Jägermeister Liqueur 1L</span><span class="item-dots"></span><span class="item-price">K1,000</span></div>
-      <div class="item-multi"><span class="item-multi-name">Southern Comfort 750ml</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K40</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K650</span></div></div></div>
-      <div class="item-multi"><span class="item-multi-name">Monkey Shoulder</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K50</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K600</span></div></div></div>
-    </div>
-  </div>
-</section>
+        <div class="subsection">
+          <p class="subsection-title">Whiskey &amp; Scotch</p>
+          <div class="item-grid">
+            <div class="item-multi"><span class="item-multi-name">Johnnie Walker Red Label</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K30</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K650</span></div>
+              </div>
+            </div>
+            <div class="item-multi"><span class="item-multi-name">Johnnie Walker Black Label 750ml</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K70</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K1,300</span></div>
+              </div>
+            </div>
+            <div class="item-multi"><span class="item-multi-name">Johnnie Walker Double Black</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K75</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K1,750</span></div>
+              </div>
+            </div>
+            <div class="item-multi"><span class="item-multi-name">Jameson Triple Distilled 750ml</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K50</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K900</span></div>
+              </div>
+            </div>
+            <div class="item-multi"><span class="item-multi-name">Jameson IPA Edition</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K50</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K750</span></div>
+              </div>
+            </div>
+            <div class="item-multi"><span class="item-multi-name">Jameson Single Pot Still</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K50</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K1,000</span></div>
+              </div>
+            </div>
+            <div class="item-multi"><span class="item-multi-name">Jameson Stout Edition</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K60</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K1,000</span></div>
+              </div>
+            </div>
+            <div class="item-multi"><span class="item-multi-name">Jameson Black Barrel</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K70</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K1,300</span></div>
+              </div>
+            </div>
+            <div class="item-multi"><span class="item-multi-name">Jameson Triple Triple 750ml</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K70</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K1,600</span></div>
+              </div>
+            </div>
+            <div class="item-multi"><span class="item-multi-name">Jack Daniels 750ml</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K50</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K1,100</span></div>
+              </div>
+            </div>
+            <div class="item-multi"><span class="item-multi-name">Jack Daniels Honey 750ml</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K60</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K1,100</span></div>
+              </div>
+            </div>
+            <div class="item-row"><span class="item-name">Jack Daniels 1L</span><span class="item-dots"></span><span
+                class="item-price">K1,200</span></div>
+            <div class="item-multi"><span class="item-multi-name">Bankers Club Whiskey</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K45</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K600</span></div>
+              </div>
+            </div>
+            <div class="item-row"><span class="item-name">Bells Whiskey 750ml</span><span class="item-dots"></span><span
+                class="item-price">K650</span></div>
+            <div class="item-row"><span class="item-name">Famous Grouse 750ml</span><span class="item-dots"></span><span
+                class="item-price">K600</span></div>
+            <div class="item-row"><span class="item-name">Grants Whiskey 750ml</span><span
+                class="item-dots"></span><span class="item-price">K500</span></div>
+            <div class="item-row"><span class="item-name">Harrier Whisky 750ml</span><span
+                class="item-dots"></span><span class="item-price">K300</span></div>
+            <div class="item-row"><span class="item-name">Chivas Regal</span><span class="item-dots"></span><span
+                class="item-price">K1,200</span></div>
+            <div class="item-multi"><span class="item-multi-name">Glenfiddich 12 Years</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K70</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K1,900</span></div>
+              </div>
+            </div>
+            <div class="item-multi"><span class="item-multi-name">Glenlivet 12 Years</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K70</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K1,900</span></div>
+              </div>
+            </div>
+            <div class="item-multi"><span class="item-multi-name">Glenlivet Founders Reserve</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K80</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K2,000</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-<!-- ══════════ COGNAC & BRANDY ══════════ -->
-<section class="menu-section" id="cognac">
-  <div class="section-header"><h2>✦ Cognac &amp; Brandy</h2><div class="section-line"></div></div>
-  <div class="item-grid">
-    <div class="item-row"><span class="item-name">Kripdrift Brandy 750ml</span><span class="item-dots"></span><span class="item-price">K300</span></div>
-    <div class="item-row"><span class="item-name">Richelieu Brandy 750ml</span><span class="item-dots"></span><span class="item-price">K450</span></div>
-    <div class="item-multi"><span class="item-multi-name">KWV 5 Years</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K30</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K500</span></div></div></div>
-    <div class="item-multi"><span class="item-multi-name">Bankers Club Bourbon</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K50</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K700</span></div></div></div>
-    <div class="item-multi"><span class="item-multi-name">Jim Beam Kentucky Bourbon 750ml</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K40</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K750</span></div></div></div>
-    <div class="item-multi"><span class="item-multi-name">Hennessy VSOP 750ml</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K60</span></div><div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K1,800</span></div></div></div>
-    <div class="item-row"><span class="item-name">Hennessy Very Special Cognac 750ml</span><span class="item-dots"></span><span class="item-price">K2,600</span></div>
-    <div class="item-row"><span class="item-name">Courvoisier VS Cognac 750ml</span><span class="item-dots"></span><span class="item-price">K1,700</span></div>
-    <div class="item-row"><span class="item-name">D'USSÉ VSOP Cognac</span><span class="item-dots"></span><span class="item-price">K2,700</span></div>
-    <div class="item-row"><span class="item-name">Vat 69</span><span class="item-dots"></span><span class="item-price">K350</span></div>
-  </div>
-</section>
+        <div class="subsection">
+          <p class="subsection-title">Rum</p>
+          <div class="item-grid">
+            <div class="item-multi"><span class="item-multi-name">Bacardi Carta Blanca 750ml</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K60</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K600</span></div>
+              </div>
+            </div>
+            <div class="item-row"><span class="item-name">Captain Morgan Jamaica Rum 750ml</span><span
+                class="item-dots"></span><span class="item-price">K550</span></div>
+            <div class="item-row"><span class="item-name">Captain Morgan Spiced Gold 750ml</span><span
+                class="item-dots"></span><span class="item-price">K400</span></div>
+            <div class="item-row"><span class="item-name">Wise Monkey Café Rum</span><span
+                class="item-dots"></span><span class="item-price">K500</span></div>
+            <div class="item-row"><span class="item-name">Wise Monkey Coconut</span><span class="item-dots"></span><span
+                class="item-price">K500</span></div>
+            <div class="item-row"><span class="item-name">Wise Monkey Gold</span><span class="item-dots"></span><span
+                class="item-price">K500</span></div>
+          </div>
+        </div>
 
-<!-- ══════════ SOFT DRINKS ══════════ -->
-<section class="menu-section" id="softdrinks">
-  <div class="section-header"><h2>🥤 Soft Drinks &amp; Mixers</h2><div class="section-line"></div></div>
+        <div class="subsection">
+          <p class="subsection-title">Tequila</p>
+          <div class="item-grid">
+            <div class="item-multi"><span class="item-multi-name">Olmeca Tequila Gold</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K45</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K800</span></div>
+              </div>
+            </div>
+            <div class="item-multi"><span class="item-multi-name">Olmeca Tequila Silver</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K45</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K800</span></div>
+              </div>
+            </div>
+            <div class="item-row"><span class="item-name">El Bravo Tequila Original</span><span
+                class="item-dots"></span><span class="item-price">K500</span></div>
+            <div class="item-row"><span class="item-name">El Bravo Strawberry</span><span class="item-dots"></span><span
+                class="item-price">K500</span></div>
+            <div class="item-row"><span class="item-name">Patron Silver Premium Tequila</span><span
+                class="item-dots"></span><span class="item-price">K2,500</span></div>
+          </div>
+        </div>
 
-  <div class="subsection">
-    <p class="subsection-title">Sodas</p>
-    <div class="item-grid">
-      <div class="item-row"><span class="item-name">Coca-Cola</span><span class="item-dots"></span><span class="item-price">K20</span></div>
-      <div class="item-row"><span class="item-name">Sprite</span><span class="item-dots"></span><span class="item-price">K20</span></div>
-      <div class="item-row"><span class="item-name">Fanta</span><span class="item-dots"></span><span class="item-price">K20</span></div>
-      <div class="item-row"><span class="item-name">Mirinda Grape</span><span class="item-dots"></span><span class="item-price">K40</span></div>
-      <div class="item-row"><span class="item-name">Red Bull</span><span class="item-dots"></span><span class="item-price">K60</span></div>
-      <div class="item-row"><span class="item-name">Chillers Punch</span><span class="item-dots"></span><span class="item-price">K60</span></div>
-    </div>
-  </div>
+        <div class="subsection">
+          <p class="subsection-title">Liqueurs &amp; Others</p>
+          <div class="item-grid">
+            <div class="item-multi"><span class="item-multi-name">Amarula</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K30</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K500</span></div>
+              </div>
+            </div>
+            <div class="item-multi"><span class="item-multi-name">Jägermeister 750ml</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K40</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K800</span></div>
+              </div>
+            </div>
+            <div class="item-row"><span class="item-name">Jägermeister Liqueur 1L</span><span
+                class="item-dots"></span><span class="item-price">K1,000</span></div>
+            <div class="item-multi"><span class="item-multi-name">Southern Comfort 750ml</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K40</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K650</span></div>
+              </div>
+            </div>
+            <div class="item-multi"><span class="item-multi-name">Monkey Shoulder</span>
+              <div class="price-tags">
+                <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K50</span></div>
+                <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K600</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <div class="subsection">
-    <p class="subsection-title">Mixers</p>
-    <div class="item-grid">
-      <div class="item-row"><span class="item-name">Brothers Gingerale</span><span class="item-dots"></span><span class="item-price">K25</span></div>
-      <div class="item-row"><span class="item-name">Brothers Lemonade</span><span class="item-dots"></span><span class="item-price">K25</span></div>
-      <div class="item-row"><span class="item-name">Brothers Tonic</span><span class="item-dots"></span><span class="item-price">K25</span></div>
-      <div class="item-row"><span class="item-name">Fitch &amp; Leedes Club Soda</span><span class="item-dots"></span><span class="item-price">K25</span></div>
-      <div class="item-row"><span class="item-name">Fitch &amp; Leedes Ginger Ale</span><span class="item-dots"></span><span class="item-price">K25</span></div>
-      <div class="item-row"><span class="item-name">Fitch &amp; Leedes Indian Lemonade</span><span class="item-dots"></span><span class="item-price">K25</span></div>
-      <div class="item-row"><span class="item-name">Fitch &amp; Leedes Indian Tonic</span><span class="item-dots"></span><span class="item-price">K25</span></div>
-      <div class="item-row"><span class="item-name">Fitch &amp; Leedes Dry Lemon</span><span class="item-dots"></span><span class="item-price">K25</span></div>
-    </div>
-  </div>
-</section>
+      <!-- ══════════ COGNAC & BRANDY ══════════ -->
+      <section class="menu-section" id="cognac">
+        <div class="section-header">
+          <h2>✦ Cognac &amp; Brandy</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="item-grid">
+          <div class="item-row"><span class="item-name">Kripdrift Brandy 750ml</span><span
+              class="item-dots"></span><span class="item-price">K300</span></div>
+          <div class="item-row"><span class="item-name">Richelieu Brandy 750ml</span><span
+              class="item-dots"></span><span class="item-price">K450</span></div>
+          <div class="item-multi"><span class="item-multi-name">KWV 5 Years</span>
+            <div class="price-tags">
+              <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K30</span></div>
+              <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K500</span></div>
+            </div>
+          </div>
+          <div class="item-multi"><span class="item-multi-name">Bankers Club Bourbon</span>
+            <div class="price-tags">
+              <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K50</span></div>
+              <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K700</span></div>
+            </div>
+          </div>
+          <div class="item-multi"><span class="item-multi-name">Jim Beam Kentucky Bourbon 750ml</span>
+            <div class="price-tags">
+              <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K40</span></div>
+              <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K750</span></div>
+            </div>
+          </div>
+          <div class="item-multi"><span class="item-multi-name">Hennessy VSOP 750ml</span>
+            <div class="price-tags">
+              <div class="price-tag"><span class="pt-label">Shot</span><span class="pt-price">K60</span></div>
+              <div class="price-tag"><span class="pt-label">Bottle</span><span class="pt-price">K1,800</span></div>
+            </div>
+          </div>
+          <div class="item-row"><span class="item-name">Hennessy Very Special Cognac 750ml</span><span
+              class="item-dots"></span><span class="item-price">K2,600</span></div>
+          <div class="item-row"><span class="item-name">Courvoisier VS Cognac 750ml</span><span
+              class="item-dots"></span><span class="item-price">K1,700</span></div>
+          <div class="item-row"><span class="item-name">D'USSÉ VSOP Cognac</span><span class="item-dots"></span><span
+              class="item-price">K2,700</span></div>
+          <div class="item-row"><span class="item-name">Vat 69</span><span class="item-dots"></span><span
+              class="item-price">K350</span></div>
+        </div>
+      </section>
 
-<!-- ══════════ WATER & JUICES ══════════ -->
-<section class="menu-section" id="water">
-  <div class="section-header"><h2>💧 Water &amp; Juices</h2><div class="section-line"></div></div>
+      <!-- ══════════ SOFT DRINKS ══════════ -->
+      <section class="menu-section" id="softdrinks">
+        <div class="section-header">
+          <h2>🥤 Soft Drinks &amp; Mixers</h2>
+          <div class="section-line"></div>
+        </div>
 
-  <div class="subsection">
-    <p class="subsection-title">Water</p>
-    <div class="item-grid">
-      <div class="item-row"><span class="item-name">Ama Mineral Water</span><span class="item-dots"></span><span class="item-price">K10</span></div>
-      <div class="item-row"><span class="item-name">Aqua Clear 500ml</span><span class="item-dots"></span><span class="item-price">K10</span></div>
-      <div class="item-row"><span class="item-name">Aqua Clear 750ml</span><span class="item-dots"></span><span class="item-price">K15</span></div>
-      <div class="item-row"><span class="item-name">Vatra 500ml</span><span class="item-dots"></span><span class="item-price">K10</span></div>
-      <div class="item-row"><span class="item-name">Vatra 750ml</span><span class="item-dots"></span><span class="item-price">K15</span></div>
-    </div>
-  </div>
+        <div class="subsection">
+          <p class="subsection-title">Sodas</p>
+          <div class="item-grid">
+            <div class="item-row"><span class="item-name">Coca-Cola</span><span class="item-dots"></span><span
+                class="item-price">K20</span></div>
+            <div class="item-row"><span class="item-name">Sprite</span><span class="item-dots"></span><span
+                class="item-price">K20</span></div>
+            <div class="item-row"><span class="item-name">Fanta</span><span class="item-dots"></span><span
+                class="item-price">K20</span></div>
+            <div class="item-row"><span class="item-name">Mirinda Grape</span><span class="item-dots"></span><span
+                class="item-price">K40</span></div>
+            <div class="item-row"><span class="item-name">Red Bull</span><span class="item-dots"></span><span
+                class="item-price">K60</span></div>
+            <div class="item-row"><span class="item-name">Chillers Punch</span><span class="item-dots"></span><span
+                class="item-price">K60</span></div>
+          </div>
+        </div>
 
-  <div class="subsection">
-    <p class="subsection-title">Juices</p>
-    <div class="item-grid">
-      <div class="item-row"><span class="item-name">Pure Joy — Apple</span><span class="item-dots"></span><span class="item-price">K85</span></div>
-      <div class="item-row"><span class="item-name">Pure Joy — Cranberry</span><span class="item-dots"></span><span class="item-price">K85</span></div>
-      <div class="item-row"><span class="item-name">Pure Joy — Guava</span><span class="item-dots"></span><span class="item-price">K85</span></div>
-      <div class="item-row"><span class="item-name">Pure Joy — Orange</span><span class="item-dots"></span><span class="item-price">K85</span></div>
-      <div class="item-row"><span class="item-name">Pure Joy — Pineapple</span><span class="item-dots"></span><span class="item-price">K85</span></div>
-      <div class="item-row"><span class="item-name">Pure Joy — Tropical</span><span class="item-dots"></span><span class="item-price">K85</span></div>
-      <div class="item-row"><span class="item-name">Rhodes — Mango</span><span class="item-dots"></span><span class="item-price">K85</span></div>
-      <div class="item-row"><span class="item-name">Fruiticana — Guava</span><span class="item-dots"></span><span class="item-price">K40</span></div>
-      <div class="item-row"><span class="item-name">Fruiticana — Mango</span><span class="item-dots"></span><span class="item-price">K40</span></div>
-      <div class="item-row"><span class="item-name">Fruiticana — Mixed Berry</span><span class="item-dots"></span><span class="item-price">K40</span></div>
-      <div class="item-row"><span class="item-name">Fruiticana — Mixed Fruit</span><span class="item-dots"></span><span class="item-price">K40</span></div>
-      <div class="item-row"><span class="item-name">Fruiticana — Tamarind</span><span class="item-dots"></span><span class="item-price">K40</span></div>
-    </div>
-  </div>
-</section>
+        <div class="subsection">
+          <p class="subsection-title">Mixers</p>
+          <div class="item-grid">
+            <div class="item-row"><span class="item-name">Brothers Gingerale</span><span class="item-dots"></span><span
+                class="item-price">K25</span></div>
+            <div class="item-row"><span class="item-name">Brothers Lemonade</span><span class="item-dots"></span><span
+                class="item-price">K25</span></div>
+            <div class="item-row"><span class="item-name">Brothers Tonic</span><span class="item-dots"></span><span
+                class="item-price">K25</span></div>
+            <div class="item-row"><span class="item-name">Fitch &amp; Leedes Club Soda</span><span
+                class="item-dots"></span><span class="item-price">K25</span></div>
+            <div class="item-row"><span class="item-name">Fitch &amp; Leedes Ginger Ale</span><span
+                class="item-dots"></span><span class="item-price">K25</span></div>
+            <div class="item-row"><span class="item-name">Fitch &amp; Leedes Indian Lemonade</span><span
+                class="item-dots"></span><span class="item-price">K25</span></div>
+            <div class="item-row"><span class="item-name">Fitch &amp; Leedes Indian Tonic</span><span
+                class="item-dots"></span><span class="item-price">K25</span></div>
+            <div class="item-row"><span class="item-name">Fitch &amp; Leedes Dry Lemon</span><span
+                class="item-dots"></span><span class="item-price">K25</span></div>
+          </div>
+        </div>
+      </section>
 
-<!-- ══════════ TOBACCO ══════════ -->
-<section class="menu-section" id="tobacco">
-  <div class="section-header"><h2>🚬 Tobacco &amp; Snacks</h2><div class="section-line"></div></div>
-  <div class="item-grid">
-    <div class="item-multi"><span class="item-multi-name">Dunhill Switch</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Stick</span><span class="pt-price">K6</span></div><div class="price-tag"><span class="pt-label">Pack</span><span class="pt-price">K100</span></div></div></div>
-    <div class="item-multi"><span class="item-multi-name">Peter</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Stick</span><span class="pt-price">K4</span></div><div class="price-tag"><span class="pt-label">Pack</span><span class="pt-price">K60</span></div></div></div>
-    <div class="item-multi"><span class="item-multi-name">Pall Mall</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Stick</span><span class="pt-price">K3</span></div><div class="price-tag"><span class="pt-label">Pack</span><span class="pt-price">K50</span></div></div></div>
-    <div class="item-multi"><span class="item-multi-name">Safari Brown</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Stick</span><span class="pt-price">K3</span></div><div class="price-tag"><span class="pt-label">Pack</span><span class="pt-price">K30</span></div></div></div>
-    <div class="item-multi"><span class="item-multi-name">Safari White</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Stick</span><span class="pt-price">K3</span></div><div class="price-tag"><span class="pt-label">Pack</span><span class="pt-price">K30</span></div></div></div>
-    <div class="item-multi"><span class="item-multi-name">Texas</span><div class="price-tags"><div class="price-tag"><span class="pt-label">Stick</span><span class="pt-price">K2</span></div><div class="price-tag"><span class="pt-label">Pack</span><span class="pt-price">K20</span></div></div></div>
-    <div class="item-row"><span class="item-name">Groundnuts</span><span class="item-dots"></span><span class="item-price">K20</span></div>
-  </div>
-</section>
+      <!-- ══════════ WATER & JUICES ══════════ -->
+      <section class="menu-section" id="water">
+        <div class="section-header">
+          <h2>💧 Water &amp; Juices</h2>
+          <div class="section-line"></div>
+        </div>
 
-</main>
+        <div class="subsection">
+          <p class="subsection-title">Water</p>
+          <div class="item-grid">
+            <div class="item-row"><span class="item-name">Ama Mineral Water</span><span class="item-dots"></span><span
+                class="item-price">K10</span></div>
+            <div class="item-row"><span class="item-name">Aqua Clear 500ml</span><span class="item-dots"></span><span
+                class="item-price">K10</span></div>
+            <div class="item-row"><span class="item-name">Aqua Clear 750ml</span><span class="item-dots"></span><span
+                class="item-price">K15</span></div>
+            <div class="item-row"><span class="item-name">Vatra 500ml</span><span class="item-dots"></span><span
+                class="item-price">K10</span></div>
+            <div class="item-row"><span class="item-name">Vatra 750ml</span><span class="item-dots"></span><span
+                class="item-price">K15</span></div>
+          </div>
+        </div>
 
-<footer>
-  <p class="footer-logo">Forest Edge Pub &amp; Grill</p>
-  <p>Prices in Zambian Kwacha (ZMW) &nbsp;·&nbsp; All prices inclusive of taxes</p>
-  <p style="margin-top:6px;">Please drink responsibly &nbsp;✦&nbsp; No alcohol to persons under 18</p>
-</footer>
-</div><!-- /page-wrap main+footer -->
+        <div class="subsection">
+          <p class="subsection-title">Juices</p>
+          <div class="item-grid">
+            <div class="item-row"><span class="item-name">Pure Joy — Apple</span><span class="item-dots"></span><span
+                class="item-price">K120</span></div>
+            <div class="item-row"><span class="item-name">Pure Joy — Cranberry</span><span
+                class="item-dots"></span><span class="item-price">K120</span></div>
+            <div class="item-row"><span class="item-name">Pure Joy — Guava</span><span class="item-dots"></span><span
+                class="item-price">K120</span></div>
+            <div class="item-row"><span class="item-name">Pure Joy — Orange</span><span class="item-dots"></span><span
+                class="item-price">K120</span></div>
+            <div class="item-row"><span class="item-name">Pure Joy — Pineapple</span><span
+                class="item-dots"></span><span class="item-price">K120</span></div>
+            <div class="item-row"><span class="item-name">Pure Joy — Tropical</span><span class="item-dots"></span><span
+                class="item-price">K120</span></div>
+            <div class="item-row"><span class="item-name">Rhodes — Mango</span><span class="item-dots"></span><span
+                class="item-price">K120</span></div>
+            <div class="item-row"><span class="item-name">Fruiticana — Guava</span><span class="item-dots"></span><span
+                class="item-price">K40</span></div>
+            <div class="item-row"><span class="item-name">Fruiticana — Mango</span><span class="item-dots"></span><span
+                class="item-price">K40</span></div>
+            <div class="item-row"><span class="item-name">Fruiticana — Mixed Berry</span><span
+                class="item-dots"></span><span class="item-price">K40</span></div>
+            <div class="item-row"><span class="item-name">Fruiticana — Mixed Fruit</span><span
+                class="item-dots"></span><span class="item-price">K40</span></div>
+            <div class="item-row"><span class="item-name">Fruiticana — Tamarind</span><span
+                class="item-dots"></span><span class="item-price">K40</span></div>
+          </div>
+        </div>
+      </section>
 
-<script>
-  // Smooth scroll + active nav
-  function scrollToSection(id) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    const navHeight = document.querySelector('.category-nav').offsetHeight;
-    const top = el.getBoundingClientRect().top + window.scrollY - navHeight - 8;
-    window.scrollTo({ top, behavior: 'smooth' });
-    // Immediately update active state
-    document.querySelectorAll('.nav-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.getAttribute('onclick')?.includes("'" + id + "'"));
-    });
-  }
+      <!-- ══════════ TOBACCO ══════════ -->
+      <section class="menu-section" id="tobacco">
+        <div class="section-header">
+          <h2>🚬 Tobacco &amp; Snacks</h2>
+          <div class="section-line"></div>
+        </div>
+        <div class="item-grid">
+          <div class="item-multi"><span class="item-multi-name">Dunhill Switch</span>
+            <div class="price-tags">
+              <div class="price-tag"><span class="pt-label">Stick</span><span class="pt-price">K6</span></div>
+              <div class="price-tag"><span class="pt-label">Pack</span><span class="pt-price">K100</span></div>
+            </div>
+          </div>
+          <div class="item-multi"><span class="item-multi-name">Peter</span>
+            <div class="price-tags">
+              <div class="price-tag"><span class="pt-label">Stick</span><span class="pt-price">K4</span></div>
+              <div class="price-tag"><span class="pt-label">Pack</span><span class="pt-price">K60</span></div>
+            </div>
+          </div>
+          <div class="item-multi"><span class="item-multi-name">Pall Mall</span>
+            <div class="price-tags">
+              <div class="price-tag"><span class="pt-label">Stick</span><span class="pt-price">K3</span></div>
+              <div class="price-tag"><span class="pt-label">Pack</span><span class="pt-price">K50</span></div>
+            </div>
+          </div>
+          <div class="item-multi"><span class="item-multi-name">Safari Brown</span>
+            <div class="price-tags">
+              <div class="price-tag"><span class="pt-label">Stick</span><span class="pt-price">K3</span></div>
+              <div class="price-tag"><span class="pt-label">Pack</span><span class="pt-price">K30</span></div>
+            </div>
+          </div>
+          <div class="item-multi"><span class="item-multi-name">Safari White</span>
+            <div class="price-tags">
+              <div class="price-tag"><span class="pt-label">Stick</span><span class="pt-price">K3</span></div>
+              <div class="price-tag"><span class="pt-label">Pack</span><span class="pt-price">K30</span></div>
+            </div>
+          </div>
+          <div class="item-multi"><span class="item-multi-name">Texas</span>
+            <div class="price-tags">
+              <div class="price-tag"><span class="pt-label">Stick</span><span class="pt-price">K2</span></div>
+              <div class="price-tag"><span class="pt-label">Pack</span><span class="pt-price">K20</span></div>
+            </div>
+          </div>
+          <div class="item-row"><span class="item-name">Groundnuts</span><span class="item-dots"></span><span
+              class="item-price">K20</span></div>
+        </div>
+      </section>
 
-  const sections = document.querySelectorAll('.menu-section');
-  const navBtns = document.querySelectorAll('.nav-btn');
+    </main>
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const id = e.target.id;
-        navBtns.forEach(btn => {
-          btn.classList.toggle('active', btn.getAttribute('onclick')?.includes("'" + id + "'"));
-        });
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '-70px 0px -50% 0px' });
+    <footer>
+      <p class="footer-logo">Forest Edge Pub &amp; Grill</p>
+      <p>Prices in Zambian Kwacha (ZMW) &nbsp;·&nbsp; All prices inclusive of taxes</p>
+      <p style="margin-top:6px;">Please drink responsibly &nbsp;✦&nbsp; No alcohol to persons under 18</p>
+    </footer>
+  </div><!-- /page-wrap main+footer -->
 
-  sections.forEach(s => observer.observe(s));
-</script>
+  <script>
+    // Smooth scroll + active nav
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const navHeight = document.querySelector('.category-nav').offsetHeight;
+      const top = el.getBoundingClientRect().top + window.scrollY - navHeight - 8;
+      window.scrollTo({ top, behavior: 'smooth' });
+      // Immediately update active state
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('onclick')?.includes("'" + id + "'"));
+      });
+    }
+
+    const sections = document.querySelectorAll('.menu-section');
+    const navBtns = document.querySelectorAll('.nav-btn');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const id = e.target.id;
+          navBtns.forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('onclick')?.includes("'" + id + "'"));
+          });
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '-70px 0px -50% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
 </body>
+
 </html>
